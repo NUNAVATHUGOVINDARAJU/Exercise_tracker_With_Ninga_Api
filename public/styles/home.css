@@ -1,0 +1,128 @@
+/* Styles for the Exercise Tracker Home Page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f7f8f8, #acbb78);
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    max-height: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff6347;
+}
+
+.quote-marquee {
+    background: #ff6347;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#info-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#info-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#info-section p {
+    font-size: 1.2em;
+}
+
+#features-section, #testimonials-section, #cta-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#features-section h2, #testimonials-section h2, #cta-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #ff6347;
+}
+
+.features, .testimonials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.feature, .testimonial {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 300px;
+}
+
+.feature h3, .testimonial p {
+    margin: 0;
+    color: #333;
+}
+
+#cta-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background: #ff6347;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 10px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #e5533d;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}

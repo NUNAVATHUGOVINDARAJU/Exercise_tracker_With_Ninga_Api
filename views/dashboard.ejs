@@ -1,0 +1,104 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Exercise Tracker</title>
+    <link rel="stylesheet" href="/styles/dashboard.css">
+</head>
+<body>
+    <header>
+        <h1 class="title">Exercise Tracker</h1>
+        <nav>
+            <ul>
+                <li class="right"><a href="/">Home</a></li>
+                <li class="right"><a href="/login.html">Login</a></li>
+                <li class="right"><a href="/signup.html">Sign Up</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <marquee>Welcome to your Exercise Dashboard, <%= username %>!</marquee>
+        <p>Login successful!</p>
+        <form id="muscleSearchForm">
+            <label for="muscle">Enter Muscle:</label>
+            <input type="text" id="muscle" name="muscle" required>
+            <button type="submit">Search</button>
+        </form>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Muscle</th>
+                        <th>Equipment</th>
+                        <th>Difficulty</th>
+                        <th>Instructions</th>
+                    </tr>
+                </thead>
+                <tbody id="exerciseData">
+                    <% for (let i = 0; i < exercises.length; i++) { %>
+                        <tr>
+                            <td><%= exercises[i].name %></td>
+                            <td><%= exercises[i].type %></td>
+                            <td><%= exercises[i].muscle %></td>
+                            <td><%= exercises[i].equipment %></td>
+                            <td><%= exercises[i].difficulty %></td>
+                            <td><%= exercises[i].instructions %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <marquee><p>“Exercise is a celebration of what your body can do. Keep going!”</p></marquee>
+        <p>&copy; 2024 Exercise Tracker</p>
+    </footer>
+
+    <script>
+        document.getElementById('muscleSearchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const muscle = document.getElementById('muscle').value;
+            fetchExerciseData(muscle);
+        });
+
+        function fetchExerciseData(muscle) {
+            fetch('/getExercises?muscle=' + muscle)
+                .then(response => response.json())
+                .then(data => {
+                    const exerciseTable = document.getElementById('exerciseData');
+                    exerciseTable.innerHTML = '';
+                    data.forEach((exercise, index) => {
+                        const row = document.createElement('tr');
+                        const nameCell = document.createElement('td');
+                        nameCell.textContent = exercise.name;
+                        const typeCell = document.createElement('td');
+                        typeCell.textContent = exercise.type;
+                        const muscleCell = document.createElement('td');
+                        muscleCell.textContent = exercise.muscle;
+                        const equipmentCell = document.createElement('td');
+                        equipmentCell.textContent = exercise.equipment;
+                        const difficultyCell = document.createElement('td');
+                        difficultyCell.textContent = exercise.difficulty;
+                        const instructionsCell = document.createElement('td');
+                        instructionsCell.textContent = exercise.instructions;
+                        row.appendChild(nameCell);
+                        row.appendChild(typeCell);
+                        row.appendChild(muscleCell);
+                        row.appendChild(equipmentCell);
+                        row.appendChild(difficultyCell);
+                        row.appendChild(instructionsCell);
+                        exerciseTable.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching exercise data:', error));
+        }
+    </script>
+</body>
+</html>

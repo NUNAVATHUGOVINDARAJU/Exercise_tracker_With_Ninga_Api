@@ -1,0 +1,149 @@
+/* Styles for the Exercise Tracker Sign-Up Page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f7f8f8, #acbb78);
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header .marquee {
+    background: #ff6347;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff6347;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 120px);
+    padding: 20px;
+}
+
+.form-content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.form-content:hover {
+    transform: scale(1.05);
+}
+
+.form-content h1 {
+    margin-bottom: 20px;
+    color: #ff6347;
+    font-size: 2em;
+}
+
+.form-content label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.form-content input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.form-content input:focus {
+    border-color: #ff6347;
+}
+
+.form-content button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background: #ff6347;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.form-content button:hover {
+    background: #e5533d;
+}
+
+.form-content p {
+    margin-top: 20px;
+}
+
+.form-content a {
+    color: #ff6347;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+.form-content a:hover {
+    text-decoration: underline;
+}
+
+.image-content {
+    display: none; /* Hide image content for mobile view */
+    margin-left: 20px;
+}
+
+.image-content img {
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    .form-container {
+        flex-direction: row;
+    }
+
+    .image-content {
+        display: block; /* Show image content for desktop view */
+    }
+
+    .form-content {
+        max-width: 350px;
+    }
+}
